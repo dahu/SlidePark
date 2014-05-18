@@ -8,15 +8,16 @@ https://www.gittip.com/bairuidahu/[tips] or
 http://of-vim-and-vigor.blogspot.com/[beverages].
 
 NOTE: SlidePark depends on:
+
 * The external tool, figlet
-* Vimple
-* Nexus
-* Asif
+* https://github.com/dahu/Vimple[Vimple]
+* https://github.com/dahu/Nexus[Nexus]
+* https://github.com/dahu/Asif[Asif]
 
 :SlidePark
 ----------
 
 The ++:SlidePark++ command will render the current buffer using SlidePark output.
 
-Try it with the provided example.slidepark file
+Try it with the provided ++example.slidepark++ file
 
