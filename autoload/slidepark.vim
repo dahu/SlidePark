@@ -76,6 +76,11 @@ function! slidepark#interface(options)
   func obj.render(text) dict
   endfunc
 
+  func obj.reset() dict
+    let self.output = []
+    return self
+  endfunc
+
   return obj
 endfunction
 
@@ -141,6 +146,9 @@ function! slidepark#asciidocish(options)
             echohl Warning
             echom 'Unknown style: ' . style
             echohl None
+          endif
+          if style != 'list'
+            let prior_indexes = []
           endif
           let rendered = 1
           break
