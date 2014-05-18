@@ -1,3 +1,5 @@
+let s:sfile_path = expand('<sfile>:p:h:h')
+
 function! renderers#interface()
   let obj = {}
   let obj.default_styles = {
@@ -74,7 +76,7 @@ function! renderers#figlet(...)
         \)
 
   let obj.figlet_font_dir = args#merge(
-        \  expand('<sfile>:p:h') . '/figlet'
+        \  s:sfile_path . '/figlet'
         \, 'g:figlet_font_dir'
         \, [a:000, 0, 'font_dir']
         \)
