@@ -1,0 +1,14 @@
+SlidePark
+---------
+
+__slides aren't just for presentations__
+
+TIP: If you like SlidePark and want to share the W00t!, I'm grateful for
+https://www.gittip.com/bairuidahu/[tips] or
+http://of-vim-and-vigor.blogspot.com/[beverages].
+
+NOTE: SlidePark depends on:
+* The external tool, figlet
+* Vimple
+* Nexus
+
