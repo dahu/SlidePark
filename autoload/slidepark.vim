@@ -12,7 +12,8 @@ function! slidepark#interface(options)
         \, 'tiny'    : 'term'
         \, 'bullet'  : 'digital'
         \}
-  let obj.renderer = renderers#figlet({'default_styles' : obj.default_styles}, a:options)
+  let obj.renderer = renderers#figlet(extend({'default_styles' : obj.default_styles}
+        \, a:options))
   " let obj.renderer = renderers#figlet(a:options)
 
   func obj.paste(...)
@@ -65,6 +66,10 @@ function! slidepark#interface(options)
     return self
   endfunc
 
+  func obj.new_page() dict
+    call add(self.output, "----newpage----")
+  endfunc
+
   func obj.to_s() dict
     return join(self.output, "\n")
   endfunc
@@ -108,11 +113,21 @@ function! slidepark#asciidocish(options)
     let romanic = Series(1, 1, 'nexus#roman')
     let seqs = [numeric, alphaic, romanic]
     let bullets = ['*', '-']
+    let blank_lines = 0
 
     for line in a:text
       if line =~ '^\s*$'
+        let blank_lines += 1
         continue
       endif
+      if blank_lines > 1
+        call self.new_page()
+      endif
+      if line =~ '^\s*//'
+        let blank_lines = 0
+        continue
+      endif
+      let blank_lines = 0
       let rendered = 0
       for [style, settings] in items(self.style)
         if match(line, settings.inline) != -1
